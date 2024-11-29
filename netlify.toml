@@ -1,0 +1,7 @@
+[build]
+  publish = "public" # Indique à Netlify de chercher les fichiers dans le dossier "public"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
