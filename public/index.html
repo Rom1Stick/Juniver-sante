@@ -3,12 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="./styles/style.css">
   <title>Juniver Santé</title>
 </head>
 <body>
 
+<header>
+  <nav id="main-nav"></nav>
+</header>
+
+
   <h1>bienvenue sur la page d'accueil de Juniver Santé</h1>
   
-  
+  <div id="content"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script type="module">
+    import CONFIG from './js/config.js';
+    import loadMarkdownPage from './js/loadPage.js';
+
+    // Charger la page d'accueil
+    loadMarkdownPage(CONFIG.contentPaths.defaultPage);
+
+    import loadNavigation from './js/loadNav.js';
+
+    // Charger la navigation dans la balise <nav>
+    loadNavigation('main-nav');
+</script>
+
+
+
 </body>
 </html>
