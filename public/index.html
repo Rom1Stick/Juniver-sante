@@ -20,6 +20,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
+  <script>
+    // Vérifier si l'URL contient un token d'invitation
+    if (window.location.hash.includes("invite_token")) {
+        // Rediriger l'utilisateur vers la page admin
+        window.location.href = "/admin/";
+    }
+  </script>
+
   <script type="module">
     import CONFIG from './js/config.js';
     import loadMarkdownPage from './js/loadPage.js';
