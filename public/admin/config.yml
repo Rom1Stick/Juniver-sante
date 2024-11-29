@@ -1,0 +1,15 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads" # Dossier pour les images
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    create: true
+    fields:
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "body", label: "Contenu", widget: "markdown" }

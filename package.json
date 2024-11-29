@@ -1,0 +1,20 @@
+{
+  "name": "juniver-sante",
+  "version": "1.0.0",
+  "description": "Juniver sante description :",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rom1Stick/Juniver-sante.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rom1Stick/Juniver-sante/issues"
+  },
+  "homepage": "https://github.com/Rom1Stick/Juniver-sante#readme"
+}
