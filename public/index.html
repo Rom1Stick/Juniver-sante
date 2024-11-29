@@ -20,14 +20,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <script>
-    // Vérifier si l'URL contient un token d'invitation
-    if (window.location.hash.includes("invite_token")) {
-        // Rediriger l'utilisateur vers la page admin
-        window.location.href = "/admin/";
-    }
-  </script>
-
   <script type="module">
     import CONFIG from './js/config.js';
     import loadMarkdownPage from './js/loadPage.js';
@@ -39,6 +31,36 @@
 
     // Charger la navigation dans la balise <nav>
     loadNavigation('main-nav');
+</script>
+
+<script>
+(function () {
+  const hash = window.location.hash;
+
+  // Vérifier si l'URL contient un token de confirmation
+  if (hash.includes("confirmation_token")) {
+      const token = hash.split("confirmation_token=")[1];
+
+      // Appeler l'API Netlify Identity pour confirmer l'email
+      fetch("https://<ton-site>.netlify.app/.netlify/identity/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token }),
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.confirmed) {
+              alert("Votre email a été confirmé avec succès !");
+              window.location.href = "/admin/";
+          } else {
+              alert("La confirmation de l'email a échoué.");
+          }
+      })
+      .catch(error => {
+          console.error("Erreur lors de la confirmation :", error);
+      });
+  }
+})();
 </script>
 
 
