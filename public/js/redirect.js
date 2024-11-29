@@ -1,7 +1,6 @@
 (function () {
-  // Vérifie si l'URL contient un token d'invitation
-  if (window.location.hash.includes("invite_token")) {
-      // Redirige vers la page admin
+  // Si l'URL contient "invite_token" ou "confirmation_token", redirige vers /admin
+  if (window.location.hash.includes("invite_token") || window.location.hash.includes("confirmation_token")) {
       window.location.href = "/admin/";
   }
 })();

@@ -7,6 +7,6 @@
   status = 200
 
 [[redirects]]
-from = "/*#invite_token=:token"
-to = "/admin/"
-status = 200
+  from = "/*#invite_token=:token"
+  to = "/admin/"
+  status = 200
