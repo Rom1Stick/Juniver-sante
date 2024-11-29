@@ -33,39 +33,6 @@
     loadNavigation('main-nav');
 </script>
 
-<script>
-(function () {
-  const hash = window.location.hash;
-
-  // Vérifie si l'URL contient un token de confirmation
-  if (hash.includes("confirmation_token")) {
-      const token = hash.split("confirmation_token=")[1]?.split('&')[0]; // Extraire uniquement le token
-
-      // Appeler l'API Netlify Identity pour confirmer l'email
-      fetch("https://juniver-sante.netlify.app/.netlify/identity/verify", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token }),
-      })
-      .then(response => response.json())
-      .then(data => {
-          if (data?.confirmed) {
-              alert("Votre email a été confirmé avec succès !");
-              window.location.href = "/admin/";
-          } else {
-              alert("La confirmation de l'email a échoué. Veuillez réessayer.");
-          }
-      })
-      .catch(error => {
-          console.error("Erreur lors de la confirmation :", error);
-          alert("Une erreur est survenue lors de la confirmation de l'email.");
-      });
-  }
-})();
-
-</script>
-
-
-
+<script src="js/redirect.js"></script>
 </body>
 </html>
